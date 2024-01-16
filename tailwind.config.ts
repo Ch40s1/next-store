@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+         'hat-image': "url('/img/yarn-hat.png')",
+         'shirt-image': "url('/img/shirt-category.png')",
+         'jacket-image': "url('/img/jacket-category.png')",
       },
     },
   },
