@@ -1,6 +1,4 @@
-import Link from "next/link";
-import Image from "next/image";
-
+import ProductMap from "../../ui/products/productMap";
 
 const shirts = [
   {
@@ -37,23 +35,9 @@ const shirts = [
 export default function Page() {
   return (
     <>
-      <nav>
-        <Link href="/">Home</Link>
-      </nav>
-
       <div>
         <h1>Shirts</h1>
-        <ul>
-          {shirts.map((shirt) => (
-            <li key={shirt.id}>
-              <Link href={`/products/shirts/${shirt.id}`}>
-                  <Image src={shirt.image} alt={shirt.name} width={500} height={500} />
-                  <div>{shirt.name}</div>
-                  <div>{shirt.price}</div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <ProductMap productArray={shirts} />
       </div>
     </>
   );
