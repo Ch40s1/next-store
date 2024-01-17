@@ -1,7 +1,3 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Cards from "./ui/home/cards";
 
 const categories = [
@@ -26,28 +22,8 @@ const categories = [
 ];
 
 export default function Home() {
-  const pathname = usePathname();
   return (
     <main className="flex flex-col items-center justify-between">
-      <nav>
-        <ul>
-          <li>
-            <Link
-              className={`link ${pathname === "/products" ? "active" : ""}`}
-              href="/products"
-            >
-              Shop
-            </Link>
-          </li>
-          <li>
-            <Link href="/user/login">Login</Link>
-          </li>
-          <li>
-            <Link href="/user/signup">Sign-up</Link>
-          </li>
-        </ul>
-      </nav>
-
       <div>
         {categories.map((category) => (
           <div

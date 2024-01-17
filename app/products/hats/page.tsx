@@ -1,5 +1,4 @@
-import Link from "next/link";
-import Image from "next/image";
+import ProductMap from "../../ui/products/productMap";
 
 const hats = [
   {
@@ -43,23 +42,9 @@ const hats = [
 export default function Page() {
   return (
     <>
-      <nav>
-        <Link href="/">Home</Link>
-      </nav>
-
       <div>
         <h1>Hats</h1>
-        <ul>
-          {hats.map((hat) => (
-            <li key={hat.id}>
-              <Link href={`/products/hats/${hat.id}`}>
-                  <Image src={hat.image} alt={hat.name} width={500} height={500} />
-                  <div>{hat.name}</div>
-                  <div>{hat.price}</div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <ProductMap productArray={hats} />
       </div>
     </>
   );
