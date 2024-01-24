@@ -3,6 +3,7 @@ const { db } = require('@vercel/postgres');
 const {
   customers,
   users,
+  products
 } = require('../app/lib/placeholder-data');
 const bcrypt = require('bcrypt');
 
@@ -87,11 +88,54 @@ async function seedCustomers(client) {
     throw error;
   }
 }
+async function seedProducts(client) {
+  try {
+    await client.sql`DROP TABLE IF EXISTS products CASCADE`;
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+
+    // Create the "products" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS products (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        category VARCHAR(255) NOT NULL,
+        price DECIMAL(10, 2) NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        description TEXT NOT NULL,
+        image TEXT NOT NULL
+      );
+    `;
+
+    console.log(`Created "products" table`);
+
+    // Insert data into the "products" table
+    const insertedProducts = await Promise.all(
+      products.map(
+        (product) => client.sql`
+        INSERT INTO products (id, category, price, name, description, image)
+        VALUES (${product.id}, ${product.category}, ${product.price}, ${product.name}, ${product.description}, ${product.image})
+        ON CONFLICT (id) DO NOTHING;
+      `,
+      ),
+    );
+
+    console.log(`Seeded ${insertedProducts.length} products`);
+
+    return {
+      createTable,
+      products: insertedProducts,
+    };
+  } catch (error) {
+    console.error('Error seeding products:', error);
+    throw error;
+  }
+}
+
 async function main() {
   const client = await db.connect();
 
   await seedUsers(client);
   await seedCustomers(client);
+  await seedProducts(client);
 
   await client.end();
 }
