@@ -13,7 +13,10 @@ export type Customer = {
   email: string;
   items: string[];
 };
-// export type CustomerField = {
-//   id: string;
-//   name: string;
-// };
+export type Product = {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  image: string;
+};
