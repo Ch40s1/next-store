@@ -5,8 +5,10 @@ import {
   Customer,
   Product,
 } from './definitions';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function getUser(email: string) {
+  noStore();
   try {
     const user = await sql`SELECT * FROM users WHERE email=${email}`;
     return user.rows[0] as User;
@@ -17,6 +19,7 @@ export async function getUser(email: string) {
 }
 
 export async function fetchCustomers() {
+  noStore();
   try {
     // Use SELECT to fetch all rows from the "customers" table
     const data = await sql`SELECT * FROM customers`;
@@ -30,6 +33,7 @@ export async function fetchCustomers() {
 }
 
 export async function fetchAllProducts() {
+  noStore();
   try {
     // Use SELECT to fetch all rows from the "products" table
     const data = await sql`SELECT * FROM products`;
@@ -43,6 +47,7 @@ export async function fetchAllProducts() {
 }
 
 export async function fetchProductById(id: string) {
+  noStore();
   try {
     // Use SELECT to fetch a single row from the "products" table
     const data = await sql`SELECT * FROM products WHERE id=${id}`;
@@ -56,6 +61,7 @@ export async function fetchProductById(id: string) {
 }
 
 export async function fetchAllProductHat() {
+  noStore();
   try {
     // Use SELECT to fetch a single row from the "products" table
     const data = await sql`SELECT * FROM products WHERE category='hats'`;
@@ -69,6 +75,7 @@ export async function fetchAllProductHat() {
 }
 
 export async function fetchAllProductShirt() {
+  noStore();
   try {
     // Use SELECT to fetch a single row from the "products" table
     const data = await sql`SELECT * FROM products WHERE category='shirts'`;
@@ -82,6 +89,7 @@ export async function fetchAllProductShirt() {
 }
 
 export async function fetchAllProductJackets() {
+  noStore();
   try {
     // Use SELECT to fetch a single row from the "products" table
     const data = await sql`SELECT * FROM products WHERE category='jackets'`;
