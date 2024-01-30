@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "./ui/navbar/navBar";
-import Cart from "./ui/cart/cart";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,13 +21,8 @@ export default function RootLayout({
         <nav>
           <NavBar />
         </nav>
-        <main>
-          <div>
-            <div>
-              <Cart />
-            </div>
-            <div>{children}</div>
-          </div>
+        <main className="grid place-content-center gap-10 mt-5 lg:grid-cols-3 lg:place-content-around lg:mx-10">
+            {children}
         </main>
       </body>
     </html>

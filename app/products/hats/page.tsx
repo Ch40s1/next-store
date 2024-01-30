@@ -6,10 +6,7 @@ export default async function Page() {
 
   return (
     <>
-      <div>
-        <h1>Hats</h1>
-        <ProductMap productArray={hats} />
-      </div>
+      <ProductMap productArray={hats} />
     </>
   );
 }

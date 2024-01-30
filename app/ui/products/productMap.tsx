@@ -4,10 +4,9 @@ import Link from "next/link";
 export default function ProductMap({ productArray }: { productArray: any;}) {
   return (
     <>
-      <ul>
         {productArray.map((data: any) => (
-          <li key={data.id}>
-            <Link href={`/products/${data.id}`}>
+          <div key={data.id}>
+            {/* <Link href={`/products/${data.id}`}> */}
               <Image
                 src={data.image}
                 alt={data.name}
@@ -16,10 +15,9 @@ export default function ProductMap({ productArray }: { productArray: any;}) {
               />
               <div>{data.name}</div>
               <div>{data.price}</div>
-            </Link>
-          </li>
+            {/* </Link> */}
+          </div>
         ))}
-      </ul>
     </>
   );
 }

@@ -13,6 +13,12 @@ const config: Config = {
          'shirt-image': "url('/img/shirt-category.png')",
          'jacket-image': "url('/img/jacket-category.png')",
       },
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+      },
     },
   },
   plugins: [],
