@@ -23,21 +23,16 @@ const categories = [
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between">
-      <div>
-        {categories.map((category) => (
-          <div
-            key={category.id}
-            className="bg-cover w-[31rem] h-[20rem] flex justify-center items-center"
-          >
+    <>
+      {categories.map((category) => (
+        <div key={category.id}>
             <Cards
               backgroundUrl={category.image}
               categoryName={category.name}
               imageLink={category.link}
             />
-          </div>
-        ))}
-      </div>
-    </main>
+        </div>
+      ))}
+    </>
   );
 }
