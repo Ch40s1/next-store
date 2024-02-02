@@ -5,14 +5,10 @@ import cartSvg from "../../../public/svg/cart.svg";
 import barsSvg from "../../../public/svg/bars.svg";
 import Image from "next/image";
 import Cart from "../cart/cart";
-import { useState } from "react";
+import { useNavigation } from "@/app/utils/openCart";
 
 export default function NavBar() {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
-  function handleCartClick() {
-    setIsCartOpen(!isCartOpen);
-  }
+  const { isCartOpen, handleCartClick } = useNavigation();
 
   return (
     <nav>
@@ -40,13 +36,14 @@ export default function NavBar() {
           height={50}
           className="pr-4 pt-5 cursor-pointer"
           onClick={handleCartClick}
+
         />
       </div>
 
       <div>
         {isCartOpen && (
-          <div className="border-y-4 border-black py-7 my-4">
-            <Cart />
+          <div className="border-4 border-black py-7 my-4 absolute right-0 bg-white rounded w-full md:w-1/2 lg:w-1/3 h-1/2">
+            <Cart handleCartClick={handleCartClick}/>
           </div>
         )}
       </div>
