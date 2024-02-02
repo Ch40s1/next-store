@@ -6,7 +6,6 @@ export default function ProductMap({ productArray }: { productArray: any;}) {
     <>
         {productArray.map((data: any) => (
           <div key={data.id}>
-            {/* <Link href={`/products/${data.id}`}> */}
               <Image
                 src={data.image}
                 alt={data.name}
@@ -15,7 +14,6 @@ export default function ProductMap({ productArray }: { productArray: any;}) {
               />
               <div>{data.name}</div>
               <div>{data.price}</div>
-            {/* </Link> */}
           </div>
         ))}
     </>
