@@ -14,7 +14,6 @@ export default function Cart( {handleCartClick}: any) {
     I will also need to allow the user to add a discount code to the cart
      in order to ge the user i will need to use the useSession hook from next-auth. This means setting up authentication in the app
     */}
-     */}
       <div className="">
         <div className="flex mb-8">
           <button className="bg-slate-500 w-14 h-14 absolute -top-5 order-2 -left-4 rounded-full" onClick={handleCartClick}>
