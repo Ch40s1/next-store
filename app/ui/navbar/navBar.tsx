@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import Link from "next/link";
 import cartSvg from "../../../public/svg/cart.svg";
@@ -6,9 +6,13 @@ import barsSvg from "../../../public/svg/bars.svg";
 import Image from "next/image";
 import Cart from "../cart/cart";
 import { useNavigation } from "@/app/utils/openCart";
+import WelcomeUser from "./nav-form";
+import { logout } from "@/app/lib/actions";
+
 
 export default function NavBar() {
-  const { isCartOpen, handleCartClick } = useNavigation();
+  // const { isCartOpen, handleCartClick } = useNavigation();
+
 
   return (
     <nav>
@@ -24,6 +28,8 @@ export default function NavBar() {
           <li>
             <Link href="/login">Login</Link>
           </li>
+          <WelcomeUser />
+
         </ul>
         {/* <Image
           src={barsSvg}
@@ -32,24 +38,24 @@ export default function NavBar() {
           height={50}
           className="pt-5"
         /> */}
-        <Image
+        {/* <Image
           src={cartSvg}
           alt="cart"
           width={100}
           height={50}
           className="pr-4 pt-5 cursor-pointer"
-          onClick={handleCartClick}
+          // onClick={handleCartClick}
 
-        />
+        /> */}
       </div>
 
-      <div>
+      {/* <div>
         {isCartOpen && (
           <div className="border-4 border-black py-7 my-4 absolute right-0 bg-white rounded w-full md:w-1/2 lg:w-1/3 h-1/2">
             <Cart handleCartClick={handleCartClick}/>
           </div>
         )}
-      </div>
+      </div> */}
     </nav>
   );
 }
