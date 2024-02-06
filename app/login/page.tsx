@@ -1,38 +1,31 @@
-"use client";
+import { redirect } from "next/navigation";
+import { getSession, login, logout } from "@/app/lib/actions";
 
-import { log } from 'console';
-import { useState } from 'react';
-
-export default function Login() {
-  const [error, setError] = useState('');
-  // console.log('email', email);
-  // console.log('password', password);
-
-  function handleSubmit(e: any) {
-    e.preventDefault();
-    const email = e.target.email;
-    const password = e.target.password
-    console.log('email', email);
-    console.log('password', password);
-
-  }
-
+export default async function Page() {
+  const session = await getSession();
   return (
-    <form onSubmit={handleSubmit}>
-      {error && <div>{error}</div>}
-      <label>
-        Email
-        <input
-          type="text"
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-        />
-      </label>
-      <button type="submit">Sign in</button>
-    </form>
+    <section>
+      <form
+        action={async (formData) => {
+          "use server";
+          await login(formData);
+          redirect("/");
+        }}
+      >
+        <input type="email" name="email" placeholder="Email" />
+        <br />
+        <button type="submit">Login</button>
+      </form>
+      <form
+        action={async () => {
+          "use server";
+          await logout();
+          redirect("/");
+        }}
+      >
+        <button type="submit">Logout</button>
+      </form>
+      <pre>{JSON.stringify(session, null, 2)}</pre>
+    </section>
   );
 }
