@@ -21,6 +21,9 @@ export default function NavBar() {
           <li>
             <Link href="/products">Shop</Link>
           </li>
+          <li>
+            <Link href="/login">Login</Link>
+          </li>
         </ul>
         {/* <Image
           src={barsSvg}
