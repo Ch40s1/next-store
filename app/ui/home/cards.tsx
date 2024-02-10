@@ -12,7 +12,7 @@ export default function Cards({
   return (
     <Link href={imageLink}>
       <div
-        className={`${backgroundUrl} bg-cover w-[31rem] h-[20rem] flex justify-center items-center`}
+        className={`${backgroundUrl} bg-cover w-[28rem] h-[19rem] flex justify-center items-center`}
       >
         <div className="bg-white w-[10rem] h-[5rem] flex justify-center items-center border-black border-2 bg-opacity-50">
           <h1>{categoryName}</h1>
