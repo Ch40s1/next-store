@@ -19,6 +19,9 @@ const config: Config = {
         lg: '1024px',
         xl: '1280px',
       },
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif'],
+      }
     },
   },
   plugins: [],

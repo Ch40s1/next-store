@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
+import { roboto } from "./utils/font";
 import "./globals.css";
 import NavBar from "./ui/navbar/navBar";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Next-Shop",
@@ -17,11 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <nav className="mx-3">
+      <body className={roboto.className}>
+        <nav className="">
           <NavBar />
         </nav>
-        <main className="grid place-content-center gap-10 mt-5 p-7 bg-[#FEF5EE]  lg:grid-cols-3 lg:place-content-around lg:mx-1">
+        <main className="grid place-content-center gap-10 mt-5 p-7 bg-[#F7F7F7] mb-40 lg:grid-cols-3 lg:place-content-around lg:mx-1">
             {children}
         </main>
       </body>
