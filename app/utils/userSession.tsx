@@ -14,7 +14,7 @@ export default async function UserSession() {
     <>
       <div>
         <p>Welcome {session.user.name}</p>
-        <p>{session.user.email}</p>
+        {/* <p>{session.user.email}</p> */}
       </div>
     </>
   );

@@ -1,22 +1,25 @@
 import Cards from "./ui/home/cards";
+import catShirt from "@/public/img/shirt-category.png";
+import catHat from "@/public/img/yarn-hat.png";
+import catJacket from "@/public/img/jacket-category.png";
 
 const categories = [
   {
     id: 1,
     name: "Shirts",
-    image: "bg-shirt-image",
+    image: catShirt,
     link: "/products/shirts",
   },
   {
     id: 2,
     name: "Hats",
-    image: "bg-hat-image",
+    image: catHat,
     link: "/products/hats",
   },
   {
     id: 3,
     name: "Jackets",
-    image: "bg-jacket-image",
+    image: catJacket,
     link: "/products/jackets",
   },
 ];
