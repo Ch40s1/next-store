@@ -15,7 +15,7 @@ export default function NavBar() {
           <UserSession />
         </div>
       </div>
-      <div>
+      <div className="lg:hidden">
         <NavBars />
       </div>
     </nav>
