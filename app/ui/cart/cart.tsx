@@ -16,7 +16,7 @@ export function Cart() {
         <Image
           src={cartSvg}
           alt="cart"
-          width={40}
+          width={50}
           className="cursor-pointer"
           onClick={handleCartClick}
         />
